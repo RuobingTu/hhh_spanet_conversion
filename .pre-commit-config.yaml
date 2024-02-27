@@ -1,0 +1,51 @@
+exclude: '^docs/conf.py'
+
+default_language_version:
+    python: python3
+
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: trailing-whitespace
+  - id: check-added-large-files
+  - id: check-ast
+  - id: check-json
+  - id: check-merge-conflict
+  - id: check-xml
+  - id: check-yaml
+  - id: debug-statements
+  - id: end-of-file-fixer
+  - id: requirements-txt-fixer
+  - id: mixed-line-ending
+    args: ['--fix=no']
+
+- repo: https://github.com/PyCQA/isort
+  rev: 5.12.0
+  hooks:
+  - id: isort
+    args: ["--profile", "black"]
+
+- repo: https://github.com/psf/black
+  rev: 23.9.1
+  hooks:
+  - id: black
+    language_version: python3
+    args: [--line-length=125]
+
+- repo: https://github.com/pycqa/flake8
+  rev: 6.1.0
+  hooks:
+  - id: flake8
+    # black-compatible flake-8 config
+    args: ['--max-line-length=125',  # github viewer width
+           '--extend-ignore=E203']  # E203 is not PEP8 compliant
+
+ci:
+    autofix_commit_msg: '[pre-commit.ci] auto fixes from pre-commit hooks'
+    autofix_prs: true
+    autoupdate_branch: 'main'
+    autoupdate_commit_msg: '[pre-commit.ci] pre-commit autoupdate'
+    autoupdate_schedule: weekly
+    skip: []
+    submodules: true
