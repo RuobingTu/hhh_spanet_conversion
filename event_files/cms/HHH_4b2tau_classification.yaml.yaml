@@ -1,0 +1,146 @@
+INPUTS:
+  SEQUENTIAL:
+    Jets:
+      mass: log_normalize
+      pt: log_normalize
+      ptcorr : none
+      eta: normalize
+      sin_phi: normalize
+      cos_phi: normalize
+      btag: none
+    
+    Lep:
+      pt : log_normalize
+      eta : normalize
+      sin_phi : normalize
+      cos_phi : normalize
+      Id : none
+    
+    FJets:
+      pt : log_normalize
+      eta : normalize
+      sin_phi : normalize
+      cos_phi : normalize
+      Xbb : normalize
+      Xjj : normalize
+      SDmass : normalize
+
+    Jet1:
+      pt1: log_normalize
+      eta1: normalize
+      sinphi1: normalize
+      cosphi1: normalize
+      dr1: normalize
+
+    Jet2:
+      pt2: log_normalize
+      eta2: normalize
+      sinphi2: normalize
+      cosphi2: normalize
+      dr2: normalize
+
+    Jet3:
+      pt3: log_normalize
+      eta3: normalize
+      sinphi3: normalize
+      cosphi3: normalize
+      dr3: normalize
+
+    Jet4:
+      pt4: log_normalize
+      eta4: normalize
+      sinphi4: normalize
+      cosphi4: normalize
+      dr4: normalize
+
+    Jet5:
+      pt5: log_normalize
+      eta5: normalize
+      sinphi5: normalize
+      cosphi5: normalize
+      dr5: normalize
+
+    Jet6:
+      pt6: log_normalize
+      eta6: normalize
+      sinphi6: normalize
+      cosphi6: normalize
+      dr6: normalize
+
+    Jet7:
+      pt7: log_normalize
+      eta7: normalize
+      sinphi7: normalize
+      cosphi7: normalize
+      dr7: normalize
+
+    Jet8:
+      pt8: log_normalize
+      eta8: normalize
+      sinphi8: normalize
+      cosphi8: normalize
+      dr8: normalize
+
+    Jet9:
+      pt9: log_normalize
+      eta9: normalize
+      sinphi9: normalize
+      cosphi9: normalize
+      dr9: normalize
+
+    Taus:
+      rawDeepTau2017v2p1VSjet : none
+      mass: log_normalize
+      pt: log_normalize
+      eta: normalize
+      sin_phi: normalize
+      cos_phi: normalize
+
+  # ---------------------------------------------------------------------
+  # REQUIRED - GLOBAL - inputs which will have a single vector per event.
+  # ---------------------------------------------------------------------
+  GLOBAL:
+    MET:
+      met: log_normalize
+    HT:
+      ht: log_normalize
+
+
+# ----------------------------------------------------------------------
+# REQUIRED - EVENT - Complete list of resonance particles and daughters.
+# ----------------------------------------------------------------------
+EVENT:
+  lh:
+    - tau1 : Taus
+    - tau2 : Taus
+
+  h1:
+    - b1 : Jets
+    - b2 : Jets
+
+  h2:
+    - b1 : Jets
+    - b2 : Jets
+
+  bh1:
+    - bb : FJB
+
+  bh2:
+    - bb : FJB
+
+# ---------------------------------------------------------
+# REQUIRED KEY - PERMUTATIONS - List of valid permutations.
+# ---------------------------------------------------------
+PERMUTATIONS:
+    EVENT:
+      - [ [h1, h2], [bh1,bh2] ]
+    lh:
+      - [ tau1, tau2 ]
+    h1:
+      - [ b1, b2 ]
+    h2:
+      - [ b1, b2 ]
+
+CLASSIFICATIONS:
+  EVENT:
+    - signal
