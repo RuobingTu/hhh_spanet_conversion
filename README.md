@@ -36,9 +36,9 @@ Override options file with `--gpus 0` if no GPUs are available.
 python -m spanet.train -of options_files/cms/HHH_4b2tau_classification.json [--gpus 0]
 ```
 since I add the classification part in 'HHH_4b2tau_classification.json', if we don't add any background, we need to modify the hyperparameter to zero.
-'''
+```
 "classification_loss_scale": 0,
-'''
+```
 
 ## 6. Evaluate the SPANet training
 Assuming the output log directory is `spanet_output/version_0`.
