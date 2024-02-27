@@ -419,6 +419,7 @@ def get_datasets(events):
     datasets["TARGETS/lh/tau2"] = h3_b2.to_numpy()
     datasets["CLASSIFICATIONS/EVENT/signal"] = NumberOfHiggs.to_numpy()
     datasets["CLASSIFICATIONS/EVENT/classfication_signal"] = signal.to_numpy()
+    datasets["EVENTBaseInfo/Weight"] = eventWeight.to_numpy()
 
     '''
     datasets["TARGETS/bh1/mask"] = h1_fj_mask.to_numpy()
