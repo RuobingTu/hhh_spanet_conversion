@@ -35,9 +35,16 @@ Override options file with `--gpus 0` if no GPUs are available.
 ```bash
 python -m spanet.train -of options_files/cms/HHH_4b2tau_classification.json [--gpus 0]
 ```
+you need to modify the input file and event information path like below.
+```
+    "event_info_file": "/hpcfs/cms/cmsgpu/turuobing/HHH_4b2tau_classification.yaml",
+    "training_file": "/hpcfs/cms/cmsgpu/turuobing/HHH_QurdJetTrigger_jetpair_PNet_training_random.h5",
+    "trial_output_dir": "/hpcfs/cms/cmsgpu/turuobing/HHH_output_PNet_classification_new",
+```
+
 since I add the classification part in 'HHH_4b2tau_classification.json', if we don't add any background, we need to modify the hyperparameter to zero.
 ```
-"classification_loss_scale": 0,
+  "classification_loss_scale": 0,
 ```
 
 ## 6. Evaluate the SPANet training
