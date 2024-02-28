@@ -15,6 +15,7 @@ logging.basicConfig(level=logging.INFO)
 
 N_JETS = 10
 N_FJETS = 4
+N_LEP = 4
 N_MASSES = 45
 MIN_JET_PT = 20
 MIN_FJET_PT = 200
@@ -118,11 +119,11 @@ def get_datasets(events):
     tau_phi = get_n_features("tau{i}Phi", events, range(1, N_TAU + 1))
     tau_rawDeepTau2017v2p1VSjet = get_n_features("tau{i}rawDeepTau2017v2p1VSjet", events, range(1, N_TAU + 1))
 
-    lep_pt = get_n_features("lep{i}Pt", events, range(1, N_TAU + 1))
+    lep_pt = get_n_features("lep{i}Pt", events, range(1, N_LEP + 1))
     lep_mask = lep_pt > 20
-    lep_Id = get_n_features("lep{i}Id", events, range(1, N_TAU + 1))
-    lep_eta = get_n_features("lep{i}Eta", events, range(1, N_TAU + 1))
-    lep_phi = get_n_features("lep{i}Phi", events, range(1, N_TAU + 1))
+    lep_Id = get_n_features("lep{i}Id", events, range(1, N_LEP + 1))
+    lep_eta = get_n_features("lep{i}Eta", events, range(1, N_LEP + 1))
+    lep_phi = get_n_features("lep{i}Phi", events, range(1, N_LEP + 1))
   
     mass1 = get_n_features("massjet1jet{i}", events, range(2, N_JETS + 1))
     mass2 = get_n_features("massjet2jet{i}", events, range(3, N_JETS + 1))
